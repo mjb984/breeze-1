@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.15.2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@9f3a8b2c7e
     with:
       build_matrix: |
         [
