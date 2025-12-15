@@ -1,11 +1,22 @@
-on: [push, pull_request, workflow_dispatch]
+name: Build ZMK firmware
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
-##    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    uses: actions/cache@v4
-##    uses: actions/upload-artifact@v4
- ##   uses: actions/download-artifact@v4
-
-
-
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix: |
+        [
+          {
+            "board": "nice_nano_v2",
+            "shield": "breeze_left"
+          },
+          {
+            "board": "nice_nano_v2",
+            "shield": "breeze_right"
+          }
+        ]
